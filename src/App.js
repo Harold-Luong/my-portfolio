@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import "./style/style-open-div.scss";
+import { useState } from "react";
 
 function App() {
+  function myMove() {
+    let divLeft = document.getElementById("div-left");
+    divLeft.className += " animate";
+    let divRight = document.getElementById("div-right");
+    divRight.className += " animate";
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App App-header open">
+        <div id="div-left" className="div-left"></div>
+        <div id="div-right" className="div-right"></div>
+        <div className="clear"></div>
+      </div>
+      <button onClick={myMove} className="click-open">
+        click
+      </button>
+    </>
   );
 }
 
